@@ -16,4 +16,4 @@ by running the /compare_alloctor.bash/ , entring number-of-threads and container
 
 moving from std::map to std::map with-chunk-allocator , is trivial change since all container interfaces remain un-changed.
 
-note: it's better to typedef container (i.e typedef std::map<int,int> my_map_t)
+note: it's better to typedef container (i.e typedef std::map<int,int> my_map_t) , this enables quick change between container types.
