@@ -110,63 +110,9 @@ void boot_thread(int num_of , cont_tp_En_t stl_type)
 		pthread_join(pt[i] , NULL );
 }
 
-typedef map<long long ,long long,less<long long>, ChunkAllocator< pair<long long ,long long >   > > my_map;
-
-void test_cc( my_map x)
-{
-int count =0;	
-	for(my_map::iterator iter=x.begin();iter != x.end();iter++,count ++);
-
-	printf("count = %d\n",count);	
-
-}
-
-void test_xx()
-{
-
-	typedef map<long long ,long long,less<long long>, ChunkAllocator< pair<long long ,long long >   > > my_map;
-
-	ChunkAllocator<int> x;
-
-	int *a = x.allocate(1);
-	x.construct(a,1);
-
-	x.destroy(a);
-
-	my_map xxx,yyy;
-
-
-	for(int i=0;i<100000;i++)
-	{
-		int a = rand()%19999999 ;
-		int b = rand()%19999999 ;
-
-		xxx [ a ] = b; 
-
-	}
-
-	yyy = xxx;
-
-
-	test_cc(xxx);
-	printf("%d %d\n",yyy.size() , xxx.size() );
-
-	for(my_map::iterator iter=xxx.begin();iter != xxx.end();iter++)
-	{
-		xxx.erase( iter );
-	}
-
-	for(my_map::iterator iter=yyy.begin();iter != yyy.end();iter++)
-	{
-		yyy.erase( iter );
-	}
-
-}
-
 int main(int argc,char **argv)
 {
 
-	//test_xx();return 0;
 
 	srand(time(0));
 	my_rand();
